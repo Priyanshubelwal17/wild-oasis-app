@@ -8,6 +8,7 @@ import { HiSquare2Stack } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
+import Table from "../../ui/Table";
 
 // import formatCurrency
 const TableRow = styled.div`
@@ -21,6 +22,7 @@ const TableRow = styled.div`
     border-bottom: 1px solid var(--color-grey-100);
   }
 `;
+console.log(TableRow);
 
 const Img = styled.img`
   display: block;
@@ -74,7 +76,7 @@ function CabinRow({ cabin }) {
   }
 
   return (
-    <TableRow role="row">
+    <Table.Row role="row">
       <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity} guests</div>
@@ -97,21 +99,21 @@ function CabinRow({ cabin }) {
           <Modal.Window name="edit">
             <CreateCabinForm cabinToEdit={cabin} />
           </Modal.Window>
-          <Modal.Open>
+          <Modal.Open opens="delete">
             <button onClick={() => deleteCabin(cabinId)} disabled={isDeleting}>
               <HiTrash />
             </button>
           </Modal.Open>
-          <Modal.Window>
+          <Modal.Window name="delete">
             <ConfirmDelete
-              resourceName="canins"
+              resourceName="cabins"
               disabled={isDeleting}
               onConfirm={() => deleteCabin(cabinId)}
             />
           </Modal.Window>
         </Modal>
       </div>
-    </TableRow>
+    </Table.Row>
   );
 }
 
