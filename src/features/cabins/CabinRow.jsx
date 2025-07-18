@@ -23,7 +23,6 @@ const TableRow = styled.div`
     border-bottom: 1px solid var(--color-grey-100);
   }
 `;
-console.log(TableRow);
 
 const Img = styled.img`
   display: block;
@@ -115,11 +114,11 @@ function CabinRow({ cabin }) {
         </Modal>
         <Menus.Menu>
           <Menus.Toggle id={cabinId} />
-          <Menu.List id={cabinId}>
-            <Menu.Button>Duplicate</Menu.Button>
-            <Menu.Button>Edit</Menu.Button>
-            <Menu.Button>Delete</Menu.Button>
-          </Menu.List>
+          <Menus.List id={cabinId}>
+            <Menus.Button>Duplicate</Menus.Button>
+            <Menus.Button>Edit</Menus.Button>
+            <Menus.Button>Delete</Menus.Button>
+          </Menus.List>
         </Menus.Menu>
       </div>
     </Table.Row>

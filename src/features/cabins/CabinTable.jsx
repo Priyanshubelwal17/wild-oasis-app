@@ -4,6 +4,7 @@ import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
 import { useCabins } from "./useCabin";
 import Table from "../../ui/Table";
+import Menus from "../../ui/Menus";
 
 const TableHeader = styled.header`
   display: grid;
@@ -19,8 +20,6 @@ const TableHeader = styled.header`
   color: var(--color-grey-600);
   padding: 1.6rem 2.4rem;
 `;
-
-console.log(Table, TableHeader);
 
 function CabinTable() {
   const { isLoading, cabins } = useCabins();
@@ -39,7 +38,7 @@ function CabinTable() {
         </Table.Header>
         <Table.Body
           data={cabins}
-          render={() => <CabinRow cabin={cabins} key={cabin.id} />}
+          render={(cabin) => <CabinRow cabin={cabin} key={cabin.id} />}
         />
       </Table>
     </Menus>
