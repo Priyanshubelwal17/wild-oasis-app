@@ -9,6 +9,7 @@ import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
+import Menus from "../../ui/Menus";
 
 // import formatCurrency
 const TableRow = styled.div`
@@ -112,6 +113,14 @@ function CabinRow({ cabin }) {
             />
           </Modal.Window>
         </Modal>
+        <Menus.Menu>
+          <Menus.Toggle id={cabinId} />
+          <Menu.List id={cabinId}>
+            <Menu.Button>Duplicate</Menu.Button>
+            <Menu.Button>Edit</Menu.Button>
+            <Menu.Button>Delete</Menu.Button>
+          </Menu.List>
+        </Menus.Menu>
       </div>
     </Table.Row>
   );
