@@ -1,19 +1,17 @@
 import styled, { css } from "styled-components";
 
-const Row = styled.div.attrs({
-  type: "vertical",
-})`
+const Row = styled.div`
   display: flex;
 
   ${(props) =>
-    props.type === "horizontal" &&
+    (props.type || "vertical") === "horizontal" &&
     css`
       justify-content: space-between;
       align-items: center;
     `}
 
   ${(props) =>
-    props.type === "vertical" &&
+    (props.type || "vertical") === "vertical" &&
     css`
       flex-direction: column;
       gap: 1.6rem;
