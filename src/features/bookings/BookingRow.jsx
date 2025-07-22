@@ -65,11 +65,14 @@ function BookingRow({
 
       <Stacked>
         <span>
-          {isToday(new Date(startDate))
-            ? "Today"
-            : formatDistanceFromNow(startDate)}{" "}
-          &rarr; {numNights} night stay
+          {startDate
+            ? isToday(new Date(startDate))
+              ? "Today"
+              : formatDistanceFromNow(startDate)
+            : "Unknown start date"}{" "}
+          &rarr; {numNights ?? "?"} night stay
         </span>
+
         <span>
           {format(new Date(startDate), "MMM dd yyyy")} &mdash;{" "}
           {format(new Date(endDate), "MMM dd yyyy")}

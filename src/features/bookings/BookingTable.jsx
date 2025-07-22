@@ -6,7 +6,7 @@ import Empty from "../../ui/Empty";
 import Spinner from "../../ui/Spinner";
 
 function BookingTable() {
-  const { bookings, isLoading } = useBookings();
+  const { bookings = [], isLoading } = useBookings();
   console.log(bookings);
   if (isLoading) return <Spinner />;
   if (!bookings.length) return <Empty resourceName="bookings" />;
@@ -22,13 +22,13 @@ function BookingTable() {
           <div>Amount</div>
           <div></div>
         </Table.Header>
-        {/* 
+
         <Table.Body
           data={bookings}
           render={(booking) => (
             <BookingRow key={booking.id} booking={booking} />
           )}
-        /> */}
+        />
       </Table>
     </Menus>
   );
