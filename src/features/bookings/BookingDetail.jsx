@@ -50,12 +50,12 @@ function BookingDetail() {
 
       <ButtonGroup>
         {status === "unconfirmed" && (
-          <Menus.Button
+          <Button
             icon={<HiArrowDownOnSquare />}
             onClick={() => navigate(`/checkin/${bookingId}`)}
           >
             Check in
-          </Menus.Button>
+          </Button>
         )}
         <Button variation="secondary" onClick={moveBack}>
           Back
