@@ -18,7 +18,7 @@ import { useCheckout } from "../check-in-out/useCheckout";
 import { useDeleteBooking } from "./useDeleteBooking";
 import Modal from "../../ui/Modal";
 import { HiTrash } from "react-icons/hi";
-import ConfirmDelete from "../../ui/ConfirmDelete";
+import ConfirmDelete from "../authentication/LoginForm";
 
 const HeadingGroup = styled.div`
   display: flex;
