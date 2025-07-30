@@ -9,7 +9,7 @@ export function useLogin() {
   const { mutate: login, isPending: isLoading } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
-      queryClient.setQueriesData(["user"], user);
+      queryClient.setQueriesData(["user"], user.user);
       toast.success("Login successful");
       navigate("/dashboard", { replace: true });
     },
