@@ -10,7 +10,9 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import GlobalStyles from "./styles/GlobalStyles";
-import AppLayout from "./ui/ApiLayout";
+
+import AppLayout from "./ui/AppLayout";
+
 import Booking from "./pages/Booking";
 import { Toaster } from "react-hot-toast";
 import Checkin from "./pages/Checkin";
