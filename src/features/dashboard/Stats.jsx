@@ -8,7 +8,7 @@ import {
 import Stat from "./Stat";
 import { formatCurrency } from "../../utils/helpers";
 
-function Stats({ bookings, confirmedStays }) {
+function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   //1.
   const numBookings = bookings.length;
 
@@ -20,10 +20,9 @@ function Stats({ bookings, confirmedStays }) {
   console.log(checkins);
 
   //4.
-  const occupation = confirmedStays.reduce(
-    (acc, cur) => acc + cur.numNights,
-    0
-  );
+  const occupancy =
+    confirmedStays.reduce((acc, cur) => acc + cur.numNights, 0) /
+    (numDays * cabinCount);
   return (
     <>
       <Stat
@@ -48,7 +47,7 @@ function Stats({ bookings, confirmedStays }) {
         title="Occupancy rate"
         color="yellow"
         icon={<HiOutlineChartBar />}
-        value={numBookings}
+        value={Math.round(occupancy * 100)}
       />
     </>
   );
