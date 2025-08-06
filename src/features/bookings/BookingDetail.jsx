@@ -19,6 +19,7 @@ import { useDeleteBooking } from "./useDeleteBooking";
 import Modal from "../../ui/Modal";
 import { HiTrash } from "react-icons/hi";
 import ConfirmDelete from "../authentication/LoginForm";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ function BookingDetail() {
   const { checkout, isCheckingOut } = useCheckout();
   const { isDeleting, deleteBooking } = useDeleteBooking();
   if (isLoading) return <Spinner />;
+  if (!booking) return <Empty resourceName="booking" />;
 
   const { status, id: bookingId } = booking;
 
